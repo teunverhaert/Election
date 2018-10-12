@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>AP TO DATE - Statistics</title>
+    <!-- amCharts javascript sources -->
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script type="text/javascript" src="https://www.amcharts.com/lib/3/pie.js"></script>
+
+
+    <!-- amCharts javascript code -->
+    <script type="text/javascript">
+        /*var dataChart = [{
+            "politicalParty": "Groen",
+            "votes": "356.9",
+            "color": "#00857b"
+        }, {
+            "politicalParty": "CD&V",
+            "votes": 131.1,
+            "color": "#f79706"
+        }, {
+            "politicalParty": "NVA",
+            "votes": 115.8,
+            "color": "#fbbc19"
+        }, {
+            "politicalParty": "SP.A",
+            "votes": 109.9,
+            "color": "#e4010b"
+        }, {
+            "politicalParty": "OpenVld",
+            "votes": 108.3,
+            "color": "#005dab"
+        }];*/
+
+        function createPage() {
+            createChart(dataChart);
+        }
+
+        function createChart(data) {
+            AmCharts.makeChart("chartdiv", {
+                "type": "pie",
+                "startDuration": 0,
+                "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+                "titleField": "politicalParty",
+                "valueField": "votes",
+                "colorField": "color",
+                "fontSize": 12,
+                "theme": "default",
+                "allLabels": [],
+                "balloon": {},
+                "titles": [],
+                "dataProvider": data,
+                "legend": {
+                    "enabled": true,
+                    "align": "center",
+                    "equalWidths": false,
+                    "horizontalGap": 34,
+                    "left": 0,
+                    "markerType": "circle",
+                    "right": 35,
+                    "valueText": "[[percents]]%"
+                },
+                "titles": [{
+                    "id": "title-1",
+                    "text": "Live voting result",
+                    "size": 20
+                }]
+            });
+        }
+    </script>
+  </head>
+  <body onload="createPage()">
+    <header>
+      <nav>
+        <img src="img/logo-white.png" alt="logo">
+        <ul>
+          <li><a href="./find.html">Home</a></li>
+          <li><a class="active" href="./statistics.html">Statistics</a></li>
+          <li><a href="./votes.html">Votes</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;"></div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
